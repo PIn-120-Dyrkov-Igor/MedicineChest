@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MedicineChest</string>
+    <string name="first_name">Список медикаментов</string>
+    <string name="second_name">Моя аптечка</string>
+    <string name="third_name">Прием медикаментов</string>
+
+    <string-array name="medication_types">
+        <item>Без сортировки</item>
+        <item>Сначала выбранные</item>
+        <item>Сначала не выбранные</item>
+    </string-array>
+</resources>

@@ -1,0 +1,113 @@
+@startuml
+package medicinechest {
+  class MainActivity {
+    -button1: Button
+    -button2: Button
+    -button3: Button
+    +MainActivity()
+    +onCreate(savedInstanceState: Bundle): void
+  }
+
+  class MedicationInfoActivity {
+    -mDBHelper: DbHelper
+    -mDb: SQLiteDatabase
+    -id: int
+    -name: String
+    -form: String
+    -storage: String
+    -url: String
+    -startTime: String
+    -isactive: String
+    -editData: EditText
+    -editText: EditText
+    +MedicationInfoActivity()
+    +onCreate(savedInstanceState: Bundle): void
+    +onLinkClick(view: View): void
+    +onSaveButtonClick(view: View): void
+    +onEditTextClick(view: View): void
+    +showDatePickerDialog(): void
+  }
+
+  class MedicationListActivity {
+    -mDBHelper: DbHelper
+    -mDb: SQLiteDatabase
+    -userId: int
+    -itemPosition: int
+    -findText: String
+    +MedicationListActivity()
+    +onCreate(savedInstanceState: Bundle): void
+    +updateList(): void
+    +updateIsActiveInDatabase(newIsActive: int, userId: int): void
+  }
+
+  class MyListActivity {
+    -mDBHelper: DbHelper
+    -mDb: SQLiteDatabase
+    -findText: String
+    +MyListActivity()
+    +onCreate(savedInstanceState: Bundle): void
+    +updateList(): void
+  }
+
+  class UserListActivity {
+    -mDBHelper: DbHelper
+    -mDb: SQLiteDatabase
+    -user_id: int
+    -name: String
+    -use_id: int
+    -med_id: int
+    -time: String
+    -medcount: int
+    -timecount: int
+    -medName: String
+    -medForm: String
+    +UserListActivity()
+    +onCreate(savedInstanceState: Bundle): void
+    +onResume(): void
+    +updateList(): void
+  }
+
+  class UserDetailActivity {
+    -mDBHelper: DbHelper
+    -mDb: SQLiteDatabase
+    -user_id: int
+    -name: String
+    -use_id: int
+    -med_id: int
+    -time: String
+    -medcount: int
+    -timecount: int
+    -medName: String
+    -medForm: String
+    +UserDetailActivity()
+    +onCreate(savedInstanceState: Bundle): void
+    +updateList(): void
+  }
+
+  class UserDetailMedicationActivity {
+    -mDBHelper: DbHelper
+    -mDb: SQLiteDatabase
+    -findText: String
+    -use_id: int
+    -med_id: int
+    -time: String
+    -medcount: int
+    -timecount: int
+    -medName: String
+    -medForm: String
+    -editViewTimeUse: EditText
+    -timePickerDialog: TimePickerDialog
+    +UserDetailMedicationActivity()
+    +onCreate(savedInstanceState: Bundle): void
+    +initTimePickerDialog(): void
+    +updateList(): void
+  }
+
+  MainActivity --> MedicationListActivity
+  MainActivity --> MyListActivity
+  MainActivity --> UserListActivity
+  MyListActivity--> MedicationInfoActivity
+  UserListActivity--> UserDetailActivity
+  UserDetailActivity--> UserDetailMedicationActivity
+}
+@enduml
